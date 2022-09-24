@@ -1,0 +1,68 @@
+name: auto_sim_app
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_modular:
+  flutter_svg:
+  google_fonts:
+  mobx: ^2.0.5
+  flutter_mobx: ^2.0.2
+  scrollable_positioned_list: ^0.2.3
+  percent_indicator: ^3.4.0
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  mobx_codegen: ^2.0.4
+  build_runner: ^2.1.7
+
+
+flutter:  
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

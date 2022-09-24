@@ -1,0 +1,661 @@
+class MecanicaBasica {
+  List<Map<String, dynamic>> questions() {
+    List<Map<String, dynamic>> questions = [];
+    questions.addAll(tranV);
+
+
+    return questions;
+  }
+
+  List<Map<String, dynamic>> tranV = [
+    {
+      "command": "O defeito mais comum no carburador caracteriza-se por",
+      "alternatives": [
+        "velas queimadas.",
+        "filtro de ar furado.",
+        "entupimento.",
+        "tanque de combustível furado.",
+        "rompimento do cabo do acelerador.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "Os principais sistemas do veículo são:",
+      "alternatives": [
+        "motor, câmbio, diferencial, freio.",
+        "motor, transmissão, direção, suspensão, freio.",
+        "motor, embreagem, cardã, eixo motriz, semi-árvore.",
+        "motor, molas, amortecedores, pneus.",
+        "motor, freio, escapamento.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "Fazem parte do sistema de suspensão de um veículo:",
+      "alternatives": [
+        "cilindro mestre, estabilizador.",
+        "molas, caixa de direção.",
+        "coroa/pinhão e pastilhas.",
+        "correia dentada e ventoinha.",
+        "molas, amortecedores.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "Os amortecedores têm por função",
+      "alternatives": [
+        "evitar o atrito dos pneus com o solo.",
+        "auxiliar a mudança de direção nas curvas.",
+        "reduzir os movimentos bruscos da mola.",
+        "aumentar a vida dos pneus.",
+        "reduzir a velocidade.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "São elementos do sistema de freio:",
+      "alternatives": [
+        "disco de fricção, aditivo, lonas de freio.",
+        "cabos primários, cabo secundário, travas.",
+        "cilindro mestre, disco, tambor.",
+        "eixo primário, eixo secundário, trem de engrenagens.",
+        "coroa/pinhão e lonas.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "Os tipos de freios são:",
+      "alternatives": [
+        "mecânico, hidráulico.",
+        "hidráulico, hidramático.",
+        "antifricção, hidropneumático.",
+        "mecânico, eletromagnético.",
+        "mecânico, elétrico.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A finalidade da sangria no sistema de freios é",
+      "alternatives": [
+        "aumentar a pressão do pedal de freio.",
+        "evitar que as lonas se atritem no tambor de freio.",
+        "melhorar a sua lubrificação.",
+        "manter a altura do pedal constante.",
+        "eliminar bolhas de ar do sistema de freio.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "O freio de estacionamento, geralmente, atua",
+      "alternatives": [
+        "nas rodas dianteiras.",
+        "na transmissão.",
+        "nas rodas traseiras.",
+        "no eixo cardã.",
+        "nas quatro rodas.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "Fazem parte da embreagem:",
+      "alternatives": [
+        "platô, disco de fricção e rolamento da embreagem.",
+        "junta homocinética e pivôs.",
+        "bandejas e barras de sustentação.",
+        "pedal e câmbio.",
+        "molas e amortecedores.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A finalidade do filtro de combustível é",
+      "alternatives": [
+        "controlar a pressão de combustível.",
+        "aumentar o fluxo de combustível.",
+        "evitar o excesso de combustível.",
+        "reter as impurezas do combustível.",
+        "reter as impurezas do ar.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "A finalidade do carburador é",
+      "alternatives": [
+        "bombear o combustível para o motor.",
+        "pressionar o combustível para o interior do cilindro-mestre.",
+        "pressionar o ar para a câmara de combustão.",
+        "manter a temperatura do ar limpo e aquecido.",
+        "misturar o ar com o combustível na proporção recomendada.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command":
+          "Nos veículos mais modernos, o carburador vem sendo substituído por:",
+      "alternatives": [
+        "ignição eletrônica.",
+        "distribuidor e bobina.",
+        "ignição e injeção eletrônica.",
+        "ligação direta.",
+        "injeção eletrônica.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "Fazem parte do sistema elétrico:",
+      "alternatives": [
+        "radiador e ventoinha.",
+        "carburador e filtro de ar.",
+        "catalisador e canos de exaustão.",
+        "cabeçote, cilindros e pistão.",
+        "bateria, distribuidor e bobina.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "Os sistemas de arrefecimento existentes podem ser:",
+      "alternatives": [
+        "somente a ar.",
+        "somente a água.",
+        "a álcool e a gasolina.",
+        "a água e a álcool.",
+        "a ar e a água.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "Fazem parte do sistema arrefecido a água:",
+      "alternatives": [
+        "filtro de água e cárter.",
+        "ventoinha e alternador.",
+        "aditivos e distribuidor.",
+        "ignição e injeção eletrônicas.",
+        "radiador, bomba d’água e ventilador.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "Uma das peças fundamentais do sistema de arrefecimento é",
+      "alternatives": [
+        "a bomba de combustível.",
+        "o alternador.",
+        "o distribuidor.",
+        "a ventoinha.",
+        "a bateria.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "A finalidade do sistema de arrefecimento é",
+      "alternatives": [
+        "controlar as rotações do motor.",
+        "evitar o atrito das peças móveis do motor.",
+        "aquecer o motor.",
+        "reduzir a potência do motor.",
+        "manter a temperatura ideal de trabalho do motor.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "A finalidade da válvula termostática é",
+      "alternatives": [
+        "diminuir o fluxo da água quando atingir a temperatura ideal.",
+        "impedir a passagem de água do radiador para o carburador.",
+        "indicar a temperatura quando o fluxo de água diminui.",
+        "impedir a passagem da água do radiador para o motor.",
+        "permitir a passagem de água do motor para o radiador quando a temperatura ideal for atingida.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "O sistema de lubrificação tem a função de",
+      "alternatives": [
+        "diminuir o atrito e refrigerar as peças móveis do motor.",
+        "aquecer as peças móveis do motor.",
+        "alimentar o atrito e esquentar o motor para obter maior potência.",
+        "reduzir a emissão de gases poluentes.",
+        "refrigerar o radiador.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command":
+          "O instrumento do painel que indica a velocidade desenvolvida pelo veículo é o",
+      "alternatives": [
+        "odômetro.",
+        "tacógrafo.",
+        "manômetro.",
+        "velocímetro.",
+        "termômetro.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "O painel de instrumentos do veículo serve para",
+      "alternatives": [
+        "completar a decoração interna do veículo.",
+        "indicar todo e qualquer tipo de defeito do veículo.",
+        "indicar a velocidade do veículo.",
+        "orientar o condutor sobre as condições gerais do veículo.",
+        "indicar os caminhos alternativos no trânsito.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "Amperímetro, odômetro, botão de luzes e do limpador de pára-brisas são",
+      "alternatives": [
+        "componentes externos do painel.",
+        "instrumentos do painel.",
+        "órgãos auxiliares do motor.",
+        "equipamentos obrigatórios.",
+        "equipamentos, que auxiliam na escolha do melhor caminho.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "O velocímetro é importante para o condutor porque",
+      "alternatives": [
+        "indica a quilometragem percorrida pelo veículo.",
+        "permite ao condutor diminuir a velocidade e fazer mudança de marchas.",
+        "indica a velocidade desenvolvida pelo veículo.",
+        "impede que o veículo atinja uma velocidade superior a 80 km/h.",
+        "orienta a velocidade adequada à situação presente.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "Assinale na folha de respostas a alternativa correta.",
+      "alternatives": [
+        "Manômetro: indica a pressão do óleo no motor.",
+        "Termômetro: indica a descarga da bateria.",
+        "Amperímetro: indica o nível da água no radiador.",
+        "Odômetro: indica o nível de combustível.",
+        "Tacógrafo: registra a pressão dos pneus.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "Assinale na folha de respostas a alternativa correta.",
+      "alternatives": [
+        "Termômetro: indica a pressão do óleo do motor.",
+        "Voltímetro: indica o número de voltas das rodas.",
+        "Manômetro: indica o nível da água no radiador.",
+        "Odômetro: indica o nível de combustível.",
+        "Amperímetro: indica a carga do dínamo e a descarga da bateria.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command":
+          "O instrumento do painel que indica a temperatura do motor é o",
+      "alternatives": [
+        "amperímetro.",
+        "termômetro.",
+        "odômetro.",
+        "manômetro.",
+        "tacômetro.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "Os principais componentes do sistema de transmissão são:",
+      "alternatives": [
+        "caixa de marcha, carburador e distribuidor.",
+        "direção hidráulica e alavanca do câmbio.",
+        "embreagem e câmbio.",
+        "motor, rodas e pneus.",
+        "molas e amortecedores.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "O termômetro é utilizado para indicar",
+      "alternatives": [
+        "alterações na composição do fluido de freio.",
+        "a temperatura do motor.",
+        "a temperatura do combustível.",
+        "a temperatura no interior do veículo.",
+        "a temperatura no exterior do veículo.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "O distribuidor faz parte do sistema",
+      "alternatives": [
+        "de freio.",
+        "automático.",
+        "elétrico.",
+        "de transmissão.",
+        "de arrefecimento.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "A circulação da água entre o motor e o radiador é forçada",
+      "alternatives": [
+        "pelo carburador.",
+        "pela bomba d’água.",
+        "pela bomba de óleo.",
+        "pela roda d’água.",
+        "pela correia dentada.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command":
+          "Quem movimenta as rodas dianteiras, lateralmente, colocando o veículo na direção desejada pelo condutor é o sistema de",
+      "alternatives": [
+        "direção.",
+        "freios.",
+        "transmissão.",
+        "suspensão.",
+        "arrefecimento.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A válvula de admissão do motor controla a entrada",
+      "alternatives": [
+        "dos gases nos cilindros.",
+        "dos gases resultantes da queima.",
+        "e a saída dos gases no cilindro.",
+        "dos gases no carburador.",
+        "de água no radiador.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A válvula de escape controla",
+      "alternatives": [
+        "a entrada dos gases nos cilindros.",
+        "a saída dos gases resultantes da queima.",
+        "a entrada e saída dos gases resultantes da queima.",
+        "a saída dos gases do carburador.",
+        "a saída de água do radiador.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "As peças que compõem o motor necessitam de lubrificação para",
+      "alternatives": [
+        "garantir a temperatura ideal do motor.",
+        "o veículo pegar facilmente de manhã.",
+        "reduzir seu desgaste e aquecimento.",
+        "engatar melhor as marchas.",
+        "aumentar a sua potência.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "A bateria do veículo é responsável pelo funcionamento",
+      "alternatives": [
+        "da suspensão.",
+        "da embreagem.",
+        "do pedal do freio.",
+        "de equipamentos elétricos do veículo.",
+        "do sistema de transmissão.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "O alternador/dínamo é responsável por",
+      "alternatives": [
+        "gerar potência para o motor.",
+        "acumular a energia dissipada no motor.",
+        "criar a centelha necessária para explosão da mistura de ar e combustível.",
+        "fazer funcionar o rádio do veículo.",
+        "gerar carga suficiente para manter a bateria carregada.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "A bobina, as velas e o distribuidor",
+      "alternatives": [
+        "geram carga suficiente para manter a bateria carregada.",
+        "fazem funcionar os equipamentos elétricos do veículo.",
+        "criam a centelha necessária para a explosão da mistura de ar e combustível.",
+        "geram potência para o motor.",
+        "podem substituir a bateria.",
+      ],
+      "response": 2,
+      "image": "",
+    },
+    {
+      "command": "O sistema elétrico é responsável pelo acionamento",
+      "alternatives": [
+        "do freio de pedal.",
+        "do cabo de embreagem.",
+        "da válvula de admissão.",
+        "do carburador.",
+        "do sistema de partida do veículo.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command":
+          "O sistema responsável pelo acionamento dos equipamentos de sinalização do veículo é o sistema",
+      "alternatives": [
+        "de freios.",
+        "de transmissão.",
+        "de suspensão.",
+        "elétrico.",
+        "de alavancas.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "O componente do sistema de transmissão que permite ao condutor ajustar, pela troca de marchas, a relação entre a rotação do motor e a velocidade das rodas é o",
+      "alternatives": [
+        "alternador.",
+        "distribuidor.",
+        "cabo da embreagem.",
+        "câmbio.",
+        "acelerador.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "O sistema do veículo que permite a comunicação com os outros usuários da via, indicando conversões, freadas, marcha a ré, é o sistema de",
+      "alternatives": [
+        "suspensão.",
+        "direção.",
+        "transmissão.",
+        "sinalização",
+        "freio",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "Banda de rodagem, carcaça de lonas, talões e flancos fazem parte do",
+      "alternatives": [
+        "motor.",
+        "freio.",
+        "roda.",
+        "pneu.",
+        "estofamento dos bancos.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "Conforme a disposição dos fios de reforço das lonas, o pneu pode ser",
+      "alternatives": [
+        "tala larga.",
+        "radial ou diagonal.",
+        "com câmara ou sem câmara.",
+        "'slick' (liso) ou para chuva.",
+        "de perfil alto ou baixo.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "Os gases gerados pelo motor são eliminados",
+      "alternatives": [
+        "pelas janelas.",
+        "pelo silenciador.",
+        "pela ventoinha.",
+        "pelo escapamento.",
+        "pela ventilação do motor.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "A função do silenciador no veículo é",
+      "alternatives": [
+        "permitir o movimento do volante, controlando o rumo e as manobras do veículo.",
+        "criar a centelha necessária para a explosão da mistura de ar e combustível.",
+        "permitir uma partida suave do veículo.",
+        "diminuir os ruídos vindos da descarga dos gases gerados pelo motor.",
+        "reduzir drasticamente os níveis de emissão de gases.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command":
+          "O sistema que absorve os impactos da roda com o solo, evitando que eles se reproduzam diretamente nos ocupantes do veículo é o sistema de",
+      "alternatives": [
+        "direção.",
+        "suspensão.",
+        "transmissão.",
+        "freios.",
+        "rodagem (pneus/rodas).",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command":
+          "Nos veículos com transmissão mecânica os principais componentes do sistema são:",
+      "alternatives": [
+        "embreagem, câmbio.",
+        "eixo primário.",
+        "pivô e barra estabilizadora.",
+        "amortecedores, molas, pneus e rodas.",
+        "transmissor e receptor.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A finalidade da embreagem é",
+      "alternatives": [
+        "não deixar o motor morrer.",
+        "transmitir progressivamente a potência do motor para a caixa de câmbio e rodas.",
+        "transmitir o movimento do pedal para o engate e desengate do câmbio.",
+        "evitar trancos no câmbio.",
+        "permitir a redução de velocidade do veículo.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command":
+          "Para saber se a bateria do seu veículo está descarregada você deve observar:",
+      "alternatives": [
+        "o motor com muita vibração.",
+        "a luz indicadora no painel acesa, ou o voltímetro.",
+        "o veículo afogado.",
+        "o veículo dar solavancos.",
+        "o radiador.",
+      ],
+      "response": 1,
+      "image": "",
+    },
+    {
+      "command": "A finalidade principal do conjunto de molas é",
+      "alternatives": [
+        "evitar a quebra da suspensão.",
+        "reduzir o atrito dos pneus no solo.",
+        "parar o veículo.",
+        "reduzir o impacto, em caso de acidentes.",
+        "sustentar o veículo mesmo parado.",
+      ],
+      "response": 4,
+      "image": "",
+    },
+    {
+      "command": "A quilometragem percorrida pelo veículo é indicada pelo",
+      "alternatives": [
+        "odômetro.",
+        "velocímetro.",
+        "manômetro.",
+        "conta-giros.",
+        "termômetro.",
+      ],
+      "response": 0,
+      "image": "",
+    },
+    {
+      "command": "A baixa calibragem dos pneus",
+      "alternatives": [
+        "aumenta a vida útil dos pneus.",
+        "facilita as manobras.",
+        "altera o balanceamento dos pneus.",
+        "causa desgaste dos pneus.",
+        "traz maior conforto aos ocupantes do veículo.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+    {
+      "command": "Ao utilizar um veículo com o motor ainda frio deve-se",
+      "alternatives": [
+        "aguardar a temperatura ideal dos pneus, antes de sair.",
+        "pressionar o acelerador até o assoalho do veículo, antes de dar a partida.",
+        "acelerar bastante, para atingir a temperatura ideal.",
+        "evitar acelerações bruscas, até o motor atingir a temperatura ideal.",
+        "dar a partida mais lentamente.",
+      ],
+      "response": 3,
+      "image": "",
+    },
+  ];
+}
