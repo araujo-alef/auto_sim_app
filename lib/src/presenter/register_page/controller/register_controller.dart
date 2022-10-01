@@ -19,6 +19,16 @@ abstract class _RegisterController with Store {
   }
 
   @observable
+  StateEntity? _currentState;
+
+  StateEntity get currentState => _currentState!;
+
+  @action
+  void setState(StateEntity newState) {
+    _currentState = newState;
+  }
+
+  @observable
   ObservableList<StateEntity> _states = ObservableList();
   ObservableList<StateEntity> get states => _states;
 
@@ -28,9 +38,14 @@ abstract class _RegisterController with Store {
     _states.addAll(newStates);
   }
 
+  @action
   Future<void> getStates() async {
     final String response =
         await rootBundle.loadString("assets/states/states.json");
-    Map<String, dynamic> data = await json.decode(response);
+    Map<String, dynamic> data = json.decode(response);
+    List<StateEntity> myStates = (data['estados'] as List<Map<String, dynamic>>)
+        .map((e) => StateEntity.fromMap(e))
+        .toList();
+    setStates(myStates);
   }
 }

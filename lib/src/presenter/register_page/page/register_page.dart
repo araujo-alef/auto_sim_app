@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,95 +31,94 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width / 100;
-    final height = MediaQuery.of(context).size.height / 100;
-
     return Scaffold(
-      body: BackGroundGradientWidget(
-          child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: SvgPicture.asset(
-                  "assets/images/octagon.svg",
+      body: Observer(builder: (_) {
+        return BackGroundGradientWidget(
+            child: SafeArea(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: SvgPicture.asset(
+                    "assets/images/icon_app.svg",
+                  ),
                 ),
-              ),
-              const SizedBox(height: 110.0),
-              Text(
-                "Boas vindas, qual o seu nome?",
-                style: GoogleFonts.dmSans(
-                  color: AppColorScheme.WHITE_SIM,
-                  fontSize: 24.0,
+                const Spacer(flex: 5),
+                Text(
+                  "Boas vindas, qual o seu nome?",
+                  style: GoogleFonts.dmSans(
+                    color: AppColorScheme.WHITE_SIM,
+                    fontSize: 24.0,
+                  ),
                 ),
-              ),
-              TextFormField(
-                style: const TextStyle(),
-                cursorWidth: 2.0,
-                cursorHeight: 24.0,
-                cursorColor: AppColorScheme.WHITE_SIM,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 18),
-                  hintText: "Alef Araújo",
-                  hintStyle: GoogleFonts.dmSans(
+                TextFormField(
+                  cursorWidth: 2.0,
+                  cursorHeight: 24.0,
+                  cursorColor: AppColorScheme.WHITE_SIM,
+                  onChanged: (name) => controller.setName(name),
+                  style: GoogleFonts.dmSans(
                     color: AppColorScheme.WHITE_SIM,
                     fontSize: 18.0,
                   ),
-                  enabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColorScheme.WHITE_SIM,
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(top: 18),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColorScheme.WHITE_SIM,
+                      ),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColorScheme.WHITE_SIM,
+                      ),
                     ),
                   ),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColorScheme.WHITE_SIM,
-                    ),
-                  ),
                 ),
-              ),
-              const SizedBox(height: 50.0),
-              Text(
-                "Certo, agora precisamos saber o estado onde você mora",
-                style: GoogleFonts.dmSans(
-                  color: AppColorScheme.WHITE_SIM,
-                  fontSize: 18.0,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: width * 4),
-                child: dropDown(listOfItens, "Selecione um estado"),
-              ),
-              const SizedBox(height: 30.0),
-              Text(
-                "E não menos importante, sua cidade",
-                style: GoogleFonts.dmSans(
-                  color: AppColorScheme.WHITE_SIM,
-                  fontSize: 18.0,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: width * 4),
-                child: dropDown(listOfItens, "Selecione um estado"),
-              ),
-              const SizedBox(height: 140.0),
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_forward,
-                    size: 40.0,
+                const Spacer(flex: 3),
+                Text(
+                  "Certo, agora precisamos saber o estado onde você mora",
+                  style: GoogleFonts.dmSans(
                     color: AppColorScheme.WHITE_SIM,
+                    fontSize: 18.0,
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: dropDown(listOfItens, "Selecione um estado"),
+                ),
+                const Spacer(flex: 1),
+                Text(
+                  "E não menos importante, sua cidade",
+                  style: GoogleFonts.dmSans(
+                    color: AppColorScheme.WHITE_SIM,
+                    fontSize: 18.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: dropDown(listOfItens, "Selecione um estado"),
+                ),
+                const Spacer(flex: 5),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.arrow_forward,
+                      size: 40.0,
+                      color: AppColorScheme.WHITE_SIM,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      )),
+        ));
+      }),
     );
   }
 
