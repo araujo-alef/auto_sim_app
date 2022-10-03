@@ -25,6 +25,22 @@ mixin _$RegisterController on _RegisterController, Store {
     });
   }
 
+  late final _$_currentStateAtom =
+      Atom(name: '_RegisterController._currentState', context: context);
+
+  @override
+  StateEntity? get _currentState {
+    _$_currentStateAtom.reportRead();
+    return super._currentState;
+  }
+
+  @override
+  set _currentState(StateEntity? value) {
+    _$_currentStateAtom.reportWrite(value, super._currentState, () {
+      super._currentState = value;
+    });
+  }
+
   late final _$_statesAtom =
       Atom(name: '_RegisterController._states', context: context);
 
@@ -39,6 +55,46 @@ mixin _$RegisterController on _RegisterController, Store {
     _$_statesAtom.reportWrite(value, super._states, () {
       super._states = value;
     });
+  }
+
+  late final _$_currentCityAtom =
+      Atom(name: '_RegisterController._currentCity', context: context);
+
+  @override
+  CityEntity? get _currentCity {
+    _$_currentCityAtom.reportRead();
+    return super._currentCity;
+  }
+
+  @override
+  set _currentCity(CityEntity? value) {
+    _$_currentCityAtom.reportWrite(value, super._currentCity, () {
+      super._currentCity = value;
+    });
+  }
+
+  late final _$_citiesAtom =
+      Atom(name: '_RegisterController._cities', context: context);
+
+  @override
+  ObservableList<CityEntity> get _cities {
+    _$_citiesAtom.reportRead();
+    return super._cities;
+  }
+
+  @override
+  set _cities(ObservableList<CityEntity> value) {
+    _$_citiesAtom.reportWrite(value, super._cities, () {
+      super._cities = value;
+    });
+  }
+
+  late final _$getStatesAsyncAction =
+      AsyncAction('_RegisterController.getStates', context: context);
+
+  @override
+  Future<void> getStates() {
+    return _$getStatesAsyncAction.run(() => super.getStates());
   }
 
   late final _$_RegisterControllerActionController =
@@ -56,11 +112,44 @@ mixin _$RegisterController on _RegisterController, Store {
   }
 
   @override
+  void setState(StateEntity newState) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.setState');
+    try {
+      return super.setState(newState);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setStates(List<StateEntity> newStates) {
     final _$actionInfo = _$_RegisterControllerActionController.startAction(
         name: '_RegisterController.setStates');
     try {
       return super.setStates(newStates);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCity(CityEntity newCity) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.setCity');
+    try {
+      return super.setCity(newCity);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCities(StateEntity newState) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.setCities');
+    try {
+      return super.setCities(newState);
     } finally {
       _$_RegisterControllerActionController.endAction(_$actionInfo);
     }

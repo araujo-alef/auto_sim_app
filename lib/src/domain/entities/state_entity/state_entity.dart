@@ -11,10 +11,12 @@ class StateEntity {
   factory StateEntity.fromMap(Map<String, dynamic> map) {
     return StateEntity(
       initials: map['sigla'] ?? '',
-      name: map['name'] ?? '',
+      name: map['nome'] ?? '',
       cities: List<CityEntity>.from(
         map['cidades']?.map(
-          (x) => CityEntity(name: x),
+          (city) => CityEntity(
+              name: city,
+              state: "${map['name'] ?? ''} - ${map['sigla'] ?? ''}"),
         ),
       ),
     );
