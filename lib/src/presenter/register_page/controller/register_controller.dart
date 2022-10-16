@@ -4,6 +4,7 @@ import 'package:auto_sim_app/src/domain/entities/city_entity/city_entity.dart';
 import 'package:auto_sim_app/src/domain/entities/state_entity/state_entity.dart';
 import 'package:flutter/services.dart';
 import 'package:mobx/mobx.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'register_controller.g.dart';
 
@@ -20,6 +21,16 @@ abstract class _RegisterController with Store {
   }
 
   @observable
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
+  @action
+  void setLoading(bool value) {
+    _isLoading = value;
+  }
+
+  @observable
   StateEntity? _currentState;
 
   StateEntity? get currentState => _currentState;
@@ -27,6 +38,7 @@ abstract class _RegisterController with Store {
   @action
   void setState(StateEntity newState) {
     _currentState = newState;
+    setCities(newState);
   }
 
   @observable
@@ -38,6 +50,17 @@ abstract class _RegisterController with Store {
     _states = ObservableList<StateEntity>();
     _states.addAll(newStates);
     setState(states.first);
+  }
+
+  @action
+  void selectState(String stateName) {
+    states.firstWhere((state) {
+      if (stateName.contains(state.name)) {
+        setState(state);
+        return true;
+      }
+      return false;
+    });
   }
 
   @observable
@@ -62,6 +85,17 @@ abstract class _RegisterController with Store {
   }
 
   @action
+  void selectCity(String cityName) {
+    cities.firstWhere((city) {
+      if (cityName.contains(city.name)) {
+        setCity(city);
+        return true;
+      }
+      return false;
+    });
+  }
+
+  @action
   Future<void> getStates() async {
     await Future.delayed(const Duration(seconds: 2));
     final String response =
@@ -71,7 +105,26 @@ abstract class _RegisterController with Store {
         .map((e) => StateEntity.fromMap(e))
         .toList();
     setStates(myStates);
-    setCities(states.first);
+    setLoading(false);
+  }
+
+  @action
+  Future<void> regiter() async {
+    setLoading(true);
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString('name', name);
+    await prefs.setString('state', currentCity!.state);
+    await prefs.setString('city', currentCity!.name);
+  }
+
+  @action
+  Future<bool> verifyIfBeRegistered() async {
+    setLoading(true);
+    await Future.delayed(const Duration(seconds: 2));
+    final prefs = await SharedPreferences.getInstance();
+
+    return prefs.containsKey('name');
   }
 
   List<String> get getStatesName {

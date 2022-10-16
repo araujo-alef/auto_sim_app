@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../domain/entities/card_theme_entity/card_theme_entity.dart';
 
@@ -29,4 +30,26 @@ abstract class _HomeController with Store {
       classification: 3.6,
     ),
   ];
+
+  @observable
+  String _name = "";
+  String get name => _name;
+
+  @action
+  Future<void> setName() async {
+    setLoading(true);
+    final prefs = await SharedPreferences.getInstance();
+    _name = prefs.getString('name')!;
+    setLoading(false);
+  }
+
+  @observable
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
+  @action
+  void setLoading(bool value) {
+    _isLoading = value;
+  }
 }

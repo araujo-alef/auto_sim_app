@@ -135,6 +135,7 @@ class _SimulatedPageState
                                     .getListQuestions[
                                         controller.getCurrentQuestion]
                                     .command,
+                                textAlign: TextAlign.justify,
                                 style: AppTextTheme().ubuntuMd(
                                   fontSize: height * 2,
                                   color: AppColorScheme.BLACK_SIM,
@@ -142,19 +143,20 @@ class _SimulatedPageState
                               ),
                             );
                           }),
+                          SizedBox(height: height * 2),
                           Expanded(
                             child: ListView.builder(
                               padding: EdgeInsets.only(
-                                  top: height * 2,
-                                  left: width * 6.0,
-                                  right: width * 6.0),
+                                left: width * 6.0,
+                                right: width * 6.0,
+                              ),
                               primary: false,
                               itemCount: 5,
                               shrinkWrap: true,
                               itemBuilder: (_, i) {
                                 return InkWell(
                                   onTap: () {
-                                    if (controller.GetIsResultView) {
+                                    if (controller.getIsResultView) {
                                       return;
                                     } else {
                                       controller.setResponse(controller
@@ -245,11 +247,11 @@ class _SimulatedPageState
                       ),
                       Expanded(
                         child: SimButton(
-                          text: controller.GetIsResultView
+                          text: controller.getIsResultView
                               ? "Tentar Novamente"
                               : "Finalizar Simulado",
                           onTap: () {
-                            controller.GetIsResultView
+                            controller.getIsResultView
                                 ? Modular.to.pop()
                                 : showDialog(
                                     context: context,

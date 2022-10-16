@@ -1,11 +1,14 @@
+import 'package:auto_sim_app/src/domain/entities/city_entity/city_entity.dart';
+import 'package:auto_sim_app/src/domain/entities/state_entity/state_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../designsim/styles/app_colors_scheme.dart';
 import '../../../designsim/widgets/background_gradient_widget.dart';
+import '../../../designsim/widgets/icon_app/icon_app.dart';
+import '../../../designsim/widgets/sim_snack_bar_content/sim_snack_bar_content.dart';
 import '../controller/register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -19,7 +22,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    controller.getStates();
+    verifyIfBeRegistered();
     super.initState();
   }
 
@@ -32,21 +35,18 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Observer(builder: (_) {
-        bool isLoaded =
-            controller.currentState != null && controller.currentCity != null;
-
         return BackGroundGradientWidget(
             child: SafeArea(
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50.0),
-            child: !isLoaded
-                ? Center(child: iconApp)
+            child: controller.isLoading
+                ? const Center(child: IconApp())
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      iconApp,
+                      const IconApp(),
                       const Spacer(flex: 5),
                       Text(
                         "Boas vindas, qual o seu nome?",
@@ -88,8 +88,11 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
-                        child: dropDown(controller.getStatesName,
-                            controller.getCurrentStateName),
+                        child: dropDown(
+                          controller.getStatesName,
+                          controller.getCurrentStateName,
+                          List<StateEntity>,
+                        ),
                       ),
                       const Spacer(flex: 1),
                       Text(
@@ -104,13 +107,21 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
                         child: dropDown(
                           controller.getCitiesName,
                           controller.currentCity!.name,
+                          List<CityEntity>,
                         ),
                       ),
                       const Spacer(flex: 5),
                       Align(
                         alignment: Alignment.centerRight,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (controller.name.isEmpty) {
+                              showMessage('Digite seu nome');
+                            } else {
+                              await controller.regiter();
+                              Modular.to.pushNamed("/");
+                            }
+                          },
                           icon: const Icon(
                             Icons.arrow_forward,
                             size: 40.0,
@@ -126,15 +137,29 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
     );
   }
 
-  Widget get iconApp {
-    return Center(
-      child: SvgPicture.asset(
-        "assets/images/icon_app.svg",
-      ),
+  void verifyIfBeRegistered() {
+    controller.verifyIfBeRegistered().then((value) {
+      if (value) {
+        Modular.to.pushNamed("/");
+      } else {
+        controller.getStates();
+      }
+    });
+  }
+
+  void showMessage(String msg) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return SimSnackBarContent(
+          label: msg,
+          variant: SimSnackBarVariant.alert,
+        );
+      },
     );
   }
 
-  DropdownButton dropDown(List<String> list, String value) {
+  DropdownButton dropDown(List<String> list, String value, Type typeList) {
     return DropdownButton<String>(
       value: value,
       icon: const Icon(
@@ -149,7 +174,11 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
       dropdownColor: AppColorScheme.PRIMARY_SIM.withOpacity(0.8),
       underline: Container(),
       onChanged: (String? value) {
-        print(value);
+        if (typeList == List<StateEntity>) {
+          controller.selectState(value!);
+        } else {
+          controller.selectCity(value!);
+        }
       },
       items: list.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(

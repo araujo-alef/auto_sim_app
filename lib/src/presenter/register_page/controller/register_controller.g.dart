@@ -25,6 +25,22 @@ mixin _$RegisterController on _RegisterController, Store {
     });
   }
 
+  late final _$_isLoadingAtom =
+      Atom(name: '_RegisterController._isLoading', context: context);
+
+  @override
+  bool get _isLoading {
+    _$_isLoadingAtom.reportRead();
+    return super._isLoading;
+  }
+
+  @override
+  set _isLoading(bool value) {
+    _$_isLoadingAtom.reportWrite(value, super._isLoading, () {
+      super._isLoading = value;
+    });
+  }
+
   late final _$_currentStateAtom =
       Atom(name: '_RegisterController._currentState', context: context);
 
@@ -97,6 +113,14 @@ mixin _$RegisterController on _RegisterController, Store {
     return _$getStatesAsyncAction.run(() => super.getStates());
   }
 
+  late final _$regiterAsyncAction =
+      AsyncAction('_RegisterController.regiter', context: context);
+
+  @override
+  Future<void> regiter() {
+    return _$regiterAsyncAction.run(() => super.regiter());
+  }
+
   late final _$_RegisterControllerActionController =
       ActionController(name: '_RegisterController', context: context);
 
@@ -106,6 +130,17 @@ mixin _$RegisterController on _RegisterController, Store {
         name: '_RegisterController.setName');
     try {
       return super.setName(newName);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setLoading(bool value) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.setLoading');
+    try {
+      return super.setLoading(value);
     } finally {
       _$_RegisterControllerActionController.endAction(_$actionInfo);
     }
@@ -134,6 +169,17 @@ mixin _$RegisterController on _RegisterController, Store {
   }
 
   @override
+  void selectState(String stateName) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.selectState');
+    try {
+      return super.selectState(stateName);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setCity(CityEntity newCity) {
     final _$actionInfo = _$_RegisterControllerActionController.startAction(
         name: '_RegisterController.setCity');
@@ -150,6 +196,17 @@ mixin _$RegisterController on _RegisterController, Store {
         name: '_RegisterController.setCities');
     try {
       return super.setCities(newState);
+    } finally {
+      _$_RegisterControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void selectCity(String cityName) {
+    final _$actionInfo = _$_RegisterControllerActionController.startAction(
+        name: '_RegisterController.selectCity');
+    try {
+      return super.selectCity(cityName);
     } finally {
       _$_RegisterControllerActionController.endAction(_$actionInfo);
     }

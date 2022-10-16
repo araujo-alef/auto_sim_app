@@ -231,7 +231,6 @@ class ResumeDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width / 100;
     final height = MediaQuery.of(context).size.height / 100;
 
     return Row(

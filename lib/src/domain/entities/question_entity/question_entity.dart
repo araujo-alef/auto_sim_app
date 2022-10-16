@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class QuestionEntity {
   final String command;
   final int correctAlternative;
@@ -13,7 +11,7 @@ class QuestionEntity {
     required this.image,
   });
 
-factory QuestionEntity.fromMap(Map<String, dynamic> map) {
+  factory QuestionEntity.fromMap(Map<String, dynamic> map) {
     return QuestionEntity(
       command: map['command'] ?? '',
       correctAlternative: map['correctAlternative']?.toInt() ?? 0,
@@ -21,5 +19,4 @@ factory QuestionEntity.fromMap(Map<String, dynamic> map) {
       image: map['image'] ?? '',
     );
   }
-
 }

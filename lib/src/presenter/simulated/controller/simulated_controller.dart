@@ -141,7 +141,7 @@ abstract class _SimulatedController with Store {
 
   @observable
   bool _isResultView = false;
-  bool get GetIsResultView => _isResultView;
+  bool get getIsResultView => _isResultView;
 
   @observable
   int _hits = 0;
@@ -191,7 +191,7 @@ abstract class _SimulatedController with Store {
   bool get getIsLoadingResult => _isLoadingResult;
 
   QuestionAvatarVariant verifyResults(int i) {
-    if (GetIsResultView) {
+    if (getIsResultView) {
       if (getListQuestions[getCurrentQuestion].alternatives[i] ==
           getListQuestions[getCurrentQuestion].alternatives[
               getListQuestions[getCurrentQuestion].correctAlternative]) {
@@ -213,7 +213,7 @@ abstract class _SimulatedController with Store {
   }
 
   QuestionAvatarVariant verifyResultsForMap(int i) {
-    if (GetIsResultView) {
+    if (getIsResultView) {
       if (getCurrentQuestion == i) {
         return QuestionAvatarVariant.selectedQuestion;
       } else if (getResponseQuestions[i] != "") {
