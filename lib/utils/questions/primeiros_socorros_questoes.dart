@@ -650,6 +650,7 @@ class MedicinaDeTrafego {
         "o policial.",
         "quem iniciou o atendimento.",
         "o técnico em emergência e resgate.o médico."
+        "o familiar mais próximo da vítima."
       ],
       "response": 4,
       "image": "",

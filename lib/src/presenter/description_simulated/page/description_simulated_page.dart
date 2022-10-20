@@ -188,7 +188,7 @@ class _DescriptionSimulatedPageState extends ModularState<
                               child: Text(
                                 controller.listPointDescription[index],
                                 style: AppTextTheme()
-                                    .nunnitoBold(fontSize: height * 1.6),
+                                    .nunnitoRg(fontSize: height * 1.6),
                               ),
                             ),
                           ],

@@ -47,9 +47,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(
-                                  top: height * 2, bottom: height * 0.5),
+                                top: height * 2,
+                                bottom: height * 0.5,
+                              ),
                               child: Text(
-                                "Olá, ${controller.name}",
+                                "Olá, ${controller.name.split(' ').first}",
                                 style: GoogleFonts.dmSans(
                                   color: AppColorScheme.WHITE_SIM,
                                   fontSize: height * 2.5,
