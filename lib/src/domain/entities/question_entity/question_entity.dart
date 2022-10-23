@@ -14,7 +14,7 @@ class QuestionEntity {
   factory QuestionEntity.fromMap(Map<String, dynamic> map) {
     return QuestionEntity(
       command: map['command'] ?? '',
-      correctAlternative: map['correctAlternative']?.toInt() ?? 0,
+      correctAlternative: map['response']?.toInt() ?? 0,
       alternatives: List<String>.from(map['alternatives']),
       image: map['image'] ?? '',
     );
