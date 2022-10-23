@@ -21,6 +21,7 @@ dependencies:
   scrollable_positioned_list: ^0.2.3
   percent_indicator: ^3.4.0
   shared_preferences: ^2.0.15
+  flutter_launcher_icons: ^0.10.0
 
 
 
@@ -37,6 +38,11 @@ flutter:
   assets:
     - assets/images/
     - assets/states/
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "./assets/images/icon_app.png"
 
   
   

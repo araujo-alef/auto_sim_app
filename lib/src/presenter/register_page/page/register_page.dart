@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../designsim/styles/app_colors_scheme.dart';
 import '../../../designsim/widgets/background_gradient_widget.dart';
-import '../../../designsim/widgets/icon_app/icon_app.dart';
+import '../../../designsim/widgets/icon_app/brand_app.dart';
 import '../../../designsim/widgets/sim_snack_bar_content/sim_snack_bar_content.dart';
 import '../controller/register_controller.dart';
 
@@ -41,12 +41,12 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50.0),
             child: controller.isLoading
-                ? const Center(child: IconApp())
+                ? const Center(child: BrandApp())
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const IconApp(),
+                      const BrandApp(),
                       const Spacer(flex: 5),
                       Text(
                         "Boas vindas, qual o seu nome?",

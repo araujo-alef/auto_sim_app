@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../designsim/styles/app_colors_scheme.dart';
 import '../../../designsim/styles/app_text_theme.dart';
 import '../../../designsim/widgets/background_gradient_widget.dart';
-import '../../../designsim/widgets/icon_app/icon_app.dart';
+import '../../../designsim/widgets/icon_app/brand_app.dart';
 import '../controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,7 +36,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         child: Observer(builder: (_) {
           return SafeArea(
             child: controller.isLoading
-                ? const IconApp()
+                ? const BrandApp()
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
