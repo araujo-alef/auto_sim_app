@@ -33,6 +33,8 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height / 100;
+
     return Scaffold(
       body: Observer(builder: (_) {
         return BackGroundGradientWidget(
@@ -42,94 +44,96 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50.0),
             child: controller.isLoading
                 ? const Center(child: BrandApp())
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const BrandApp(),
-                      const Spacer(flex: 5),
-                      Text(
-                        "Boas vindas, qual o seu nome?",
-                        style: GoogleFonts.dmSans(
-                          color: AppColorScheme.WHITE_SIM,
-                          fontSize: 24.0,
-                        ),
-                      ),
-                      TextFormField(
-                        cursorWidth: 2.0,
-                        cursorHeight: 24.0,
-                        cursorColor: AppColorScheme.WHITE_SIM,
-                        onChanged: (name) => controller.setName(name),
-                        style: GoogleFonts.dmSans(
-                          color: AppColorScheme.WHITE_SIM,
-                          fontSize: 18.0,
-                        ),
-                        decoration: const InputDecoration(
-                          contentPadding: EdgeInsets.only(top: 18),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColorScheme.WHITE_SIM,
-                            ),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColorScheme.WHITE_SIM,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Spacer(flex: 3),
-                      Text(
-                        "Certo, agora precisamos saber o estado onde você mora",
-                        style: GoogleFonts.dmSans(
-                          color: AppColorScheme.WHITE_SIM,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: dropDown(
-                          controller.getStatesName,
-                          controller.getCurrentStateName,
-                          List<StateEntity>,
-                        ),
-                      ),
-                      const Spacer(flex: 1),
-                      Text(
-                        "E não menos importante, sua cidade",
-                        style: GoogleFonts.dmSans(
-                          color: AppColorScheme.WHITE_SIM,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: dropDown(
-                          controller.getCitiesName,
-                          controller.currentCity!.name,
-                          List<CityEntity>,
-                        ),
-                      ),
-                      const Spacer(flex: 5),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          onPressed: () async {
-                            if (controller.name.isEmpty) {
-                              showMessage('Digite seu nome');
-                            } else {
-                              await controller.regiter();
-                              Modular.to.pushReplacementNamed("/");
-                            }
-                          },
-                          icon: const Icon(
-                            Icons.arrow_forward,
-                            size: 40.0,
+                : SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BrandApp(),
+                        SizedBox(height: height * 14),
+                        Text(
+                          "Boas vindas, qual o seu nome?",
+                          style: GoogleFonts.dmSans(
                             color: AppColorScheme.WHITE_SIM,
+                            fontSize: 24.0,
                           ),
                         ),
-                      )
-                    ],
+                        TextFormField(
+                          cursorWidth: 2.0,
+                          cursorHeight: 24.0,
+                          cursorColor: AppColorScheme.WHITE_SIM,
+                          onChanged: (name) => controller.setName(name),
+                          style: GoogleFonts.dmSans(
+                            color: AppColorScheme.WHITE_SIM,
+                            fontSize: 18.0,
+                          ),
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.only(top: 18),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: AppColorScheme.WHITE_SIM,
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: AppColorScheme.WHITE_SIM,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height * 6),
+                        Text(
+                          "Certo, agora precisamos saber o estado onde você mora",
+                          style: GoogleFonts.dmSans(
+                            color: AppColorScheme.WHITE_SIM,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16.0),
+                          child: dropDown(
+                            controller.getStatesName,
+                            controller.getCurrentStateName,
+                            List<StateEntity>,
+                          ),
+                        ),
+                        SizedBox(height: height * 4),
+                        Text(
+                          "E não menos importante, sua cidade",
+                          style: GoogleFonts.dmSans(
+                            color: AppColorScheme.WHITE_SIM,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16.0),
+                          child: dropDown(
+                            controller.getCitiesName,
+                            controller.currentCity!.name,
+                            List<CityEntity>,
+                          ),
+                        ),
+                        SizedBox(height: height * 10),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                            onPressed: () async {
+                              if (controller.name.isEmpty) {
+                                showMessage('Digite seu nome');
+                              } else {
+                                await controller.regiter();
+                                Modular.to.pushReplacementNamed("/");
+                              }
+                            },
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              size: 40.0,
+                              color: AppColorScheme.WHITE_SIM,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
           ),
         ));
