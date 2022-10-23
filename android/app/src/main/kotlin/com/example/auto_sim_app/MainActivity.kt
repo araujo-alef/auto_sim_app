@@ -1,4 +1,4 @@
-package com.example.auto_sim_app
+package auto.sim.app
 
 import io.flutter.embedding.android.FlutterActivity
 

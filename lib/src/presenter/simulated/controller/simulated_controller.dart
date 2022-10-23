@@ -161,15 +161,13 @@ abstract class _SimulatedController with Store {
         _hits++;
       }
     }
-    if ((getHits * 100) / getListQuestions.length >= 0 &&
-        (getHits * 100) / getListQuestions.length <= 25) {
+    double correctPercent = (getHits * 100) / getListQuestions.length;
+    if (correctPercent >= 0.0 && correctPercent <= 25.0) {
       _messageResult = "É um bom começo mas podemos melhorar, não desanime...";
-    } else if ((getHits * 100) / getListQuestions.length >= 26 &&
-        (getHits * 100) / getListQuestions.length <= 50) {
+    } else if (correctPercent >= 26.0 && correctPercent <= 50.0) {
       _messageResult =
           "Você está indo bem, só precisa exercitar mais um pouco. Pronto pra próxima?";
-    } else if ((getHits * 100) / getListQuestions.length >= 51 &&
-        (getHits * 100) / getListQuestions.length <= 75) {
+    } else if (correctPercent >= 51.0 && correctPercent <= 75.0) {
       _messageResult =
           "Você teve bons resultdos, alguns justes e a prova será sua!";
     } else {

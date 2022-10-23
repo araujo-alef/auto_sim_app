@@ -119,7 +119,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
                               showMessage('Digite seu nome');
                             } else {
                               await controller.regiter();
-                              Modular.to.pushNamed("/");
+                              Modular.to.pushReplacementNamed("/");
                             }
                           },
                           icon: const Icon(
@@ -140,7 +140,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterController>
   void verifyIfBeRegistered() {
     controller.verifyIfBeRegistered().then((value) {
       if (value) {
-        Modular.to.pushNamed("/");
+        Modular.to.pushReplacementNamed("/");
       } else {
         controller.getStates();
       }
